@@ -1,0 +1,24 @@
+# --- Core Framework & Orchestration ---
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-experimental
+langchain-text-splitters
+langchain-neo4j
+langgraph 
+langchainhub
+
+# --- Database Drivers ---
+neo4j
+chromadb
+
+# --- Document Processing & AI ---
+pypdf
+reportlab
+sentence-transformers
+tiktoken
+
+# --- Tools ---
+wikipedia
+duckduckgo-search

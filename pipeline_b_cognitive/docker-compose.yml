@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # 1. Neo4j: The Graph Database (For Relationships)
+  neo4j:
+    image: neo4j:5.15.0
+    container_name: cognitive-graph-db
+    ports:
+      - "7474:7474" # HTTP Interface
+      - "7687:7687" # Bolt Protocol (for Python)
+    environment:
+      NEO4J_AUTH: neo4j/password123  # Simple local password
+      NEO4J_PLUGINS: '["apoc"]'      # Awesome Procedures On Cypher (Essential for AI)
+    volumes:
+      - ./neo4j_data:/data
+
+  # 2. ChromaDB: The Vector Database (For Semantic Search)
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: cognitive-vector-db
+    ports:
+      - "8001:8000" # We use 8001 to avoid conflict with vLLM on 8000
+    volumes:
+      - ./chroma_data:/chroma/chroma
+
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,19 @@
+# Ignore Virtual Environments
+port1env/
+port2env/
+port3env/
+.venv/
+
+# Ignore Python Cache
+__pycache__/
+*.pyc
+
+# Ignore Database Data (Don't upload the actual Brain)
+neo4j_data/
+chroma_data/
+
+# Ignore Large AI Models (The 4GB file)
+shared_models/
+
+# Ignore OS files
+.DS_Store

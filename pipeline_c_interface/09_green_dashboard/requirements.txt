@@ -1,0 +1,19 @@
+# --- The Interface ---
+streamlit
+plotly
+pandas
+
+# --- The Brain (Needed to run the Agent) ---
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langgraph
+langchainhub
+
+# --- Database & AI Drivers ---
+chromadb
+neo4j
+sentence-transformers
+tiktoken
+pypdf

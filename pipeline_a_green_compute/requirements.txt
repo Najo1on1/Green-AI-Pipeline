@@ -1,0 +1,16 @@
+# Core Engineering
+fastapi
+uvicorn
+requests
+pydantic
+
+# AI & Metrics
+openai>=1.0.0
+codecarbon
+pynvml
+huggingface_hub
+
+# Utility
+python-dotenv
+pandas
+matplotlib

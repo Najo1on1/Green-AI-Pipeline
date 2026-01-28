@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  llm-server:
+    image: vllm/vllm-openai:latest
+    container_name: local-gpu-inference
+    runtime: nvidia
+    shm_size: '16gb'
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    volumes:
+      - ./shared_models:/root/.cache/huggingface
+    ports:
+      - "8000:8000"
+    command: >
+      --model TheBloke/Mistral-7B-Instruct-v0.2-AWQ
+      --quantization awq
+      --dtype half
+      --gpu-memory-utilization 0.85
+      --max-model-len 4096
+
+  # UPDATED SERVICE
+  carbon-mock:
+    build:
+      context: ./mock_api
+      dockerfile: Dockerfile 
+    container_name: carbon-api-mock
+    ports:
+      - "5000:5000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 100M
+    depends_on:
+      - llm-server
