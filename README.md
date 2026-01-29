@@ -80,7 +80,7 @@ streamlit run 09_green_dashboard/app.py
 
 | Metric | Value | Context |
 | --- | --- | --- |
-| **Hardware** | NVIDIA RTX 4060 Ti (16GB) | Consumer GPU |
+| **Hardware** | NVIDIA Card | Consumer GPU |
 | **Inference Speed** | ~35 Tokens/Sec | Real-time chat capable |
 | **Energy Efficiency** | **~14 Joules/Token** | Benchmarked via CodeCarbon |
 | **Grid Awareness** | Real-time CO2 API | Routes traffic based on grid dirty/clean state |
@@ -109,4 +109,5 @@ When asked *"Who approves cloud budgets?"*, the Agent performs a multi-step reas
 * **Orchestration:** LangChain, LangGraph.
 * **Database:** Neo4j (Graph), ChromaDB (Vector).
 * **Monitoring:** CodeCarbon, Plotly.
+
 * **Frontend:** Streamlit.
