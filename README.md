@@ -10,23 +10,22 @@ It features a **Real-Time Energy Router** that measures the carbon footprint of 
 
 ## 🏗️ Architecture
 
-The system is divided into three modular pipelines:
+The system is divided into three modular pipelines connecting local compute, cognitive reasoning, and user telemetry.
+
+![System Architecture](images/Green_AI_Architecture.png)
 
 ### **Pipeline A: The Green Compute Engine ⚡**
-
 * **Infrastructure:** Dockerized `vLLM` server running on NVIDIA Container Toolkit.
 * **Model:** `TheBloke/Mistral-7B-Instruct-v0.2-AWQ` (4-bit Quantization for efficiency).
 * **Eco-Router:** A custom Python router that fetches real-time Carbon Grid Intensity data.
 * **Green-Ops:** `CodeCarbon` integration to track Joules/Token and CO2 emissions per query.
 
 ### **Pipeline B: The Cognitive Core 🧠**
-
 * **Graph Memory:** `Neo4j` database for storing strict relationships (e.g., *Who approves budgets?*).
 * **Vector Memory:** `ChromaDB` for storing unstructured semantic data (e.g., *Compliance policies*).
 * **Agentic Logic:** A **ReAct Agent** (Reasoning + Acting) built with `LangGraph` that autonomously decides which database to query based on user intent.
 
 ### **Pipeline C: The Interface 🖥️**
-
 * **UI:** A `Streamlit` dashboard providing a chat interface.
 * **Telemetry:** Real-time energy gauge visualizing the exact power consumption of the local GPU during inference.
 
@@ -35,17 +34,15 @@ The system is divided into three modular pipelines:
 ## 🚀 Getting Started
 
 ### **1. Prerequisites**
-
 * Linux (WSL2 supported) with NVIDIA Drivers.
 * Docker & NVIDIA Container Toolkit.
 * Python 3.10+.
 
 ### **2. Installation**
-
 Clone the repo and organize the structure:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Green-AI-Pipeline.git
+git clone [https://github.com/Najo1on1/Green-AI-Pipeline.git](https://github.com/Najo1on1/Green-AI-Pipeline.git)
 cd Green-AI-Pipeline
 
 ```
@@ -92,7 +89,9 @@ streamlit run 09_green_dashboard/app.py
 
 ## 🧠 Example "Thought Process"
 
-When asked *"Who approves cloud budgets?"*, the system performs the following reasoning steps:
+When asked *"Who approves cloud budgets?"*, the Agent performs a multi-step reasoning process, switching strategies when one method fails.
+
+**Step-by-Step Logic:**
 
 > **Thought:** I need to find specific responsibilities for a role.
 > **Action:** `graph_lookup` ("Cloud Budget Approver")

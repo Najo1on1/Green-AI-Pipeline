@@ -28,7 +28,7 @@ st.set_page_config(
 # --- 3. SIDEBAR (Energy Telemetry) ---
 with st.sidebar:
     st.title("🌿 Eco-Monitor")
-    st.markdown("Real-time estimates based on your RTX 4060 Ti.")
+    st.markdown("Real-time estimates based on your GPU.")
     
     # Energy Gauge (Plotly)
     # We estimate: 1 Token ≈ 14 Joules (from your Project 3 benchmark)
